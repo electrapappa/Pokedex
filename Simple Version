@@ -1,0 +1,37 @@
+from tkinter import *
+
+root = Tk()
+root.geometry("300x300")
+root.title("Pokedex")
+
+class Pokemon:
+    def __init__(self, h, w):
+        self.height = h
+        self.weight = w
+
+Pikachu = Pokemon("40cm", "6kg")
+Bulbasaur = Pokemon("71cm", "7kg")
+Charmander = Pokemon("61cm", "8kg")
+
+def find_button():
+    if entry.get() == "Pikachu" or entry.get() == "pikachu":
+        text["text"] = ("Your Pikachu stats are: " + Pikachu.height + " height and " + Pikachu.weight + " weight")
+    elif entry.get() == "Bulbasaur" or entry.get() == "bulbasaur":
+        text["text"] = ("Your Bulbasaur stats are: " + Bulbasaur.height + " height and " + Bulbasaur.weight + " weight")
+    elif entry.get() == "Charmander" or entry.get() == "charmander":
+        text["text"] = ("Your Charmander stats are: " + Charmander.height + " height and " + Charmander.weight + " weight")
+    else:
+        text["text"] = "You don't have this Pokemon"
+
+question = Label(text="Enter Pokemon", font=("Arial, 11")).pack(pady=20)
+
+entry = Entry(root, width=50, font=("Arial, 12"), bg="white", fg="black", justify="center")
+entry.pack(pady=20)
+
+button = Button(root)
+Button(text='Find', padx=15, pady=8, command=find_button).pack(pady=8)
+
+text = Label(root, font=("Arial, 11"), fg="blue", pady=20)
+text.pack()
+
+root.mainloop()
